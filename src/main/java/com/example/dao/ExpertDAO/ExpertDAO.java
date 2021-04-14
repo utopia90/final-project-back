@@ -11,4 +11,6 @@ public interface ExpertDAO {
     Expert postExpert(@PathVariable Expert expert);
     Expert findExpertByName(@PathVariable String name);
     Expert findExpertById(Long id);
+
+    Expert updateExpert(Expert expert);
 }

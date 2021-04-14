@@ -4,7 +4,6 @@ import com.example.model.Expert;
 import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
-import java.util.Optional;
 
 public interface ExpertService {
     List<Expert> findAllFromRepository();
@@ -15,4 +14,6 @@ public interface ExpertService {
     Expert findExpertById(Long id);
 
     Expert createExpert(Expert expert);
+
+    Expert updateExpert(Expert expert);
 }

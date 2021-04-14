@@ -38,6 +38,15 @@ public class ExpertController {
         }else{
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }}
+    @GetMapping("/experts/name/{name}")
+    public ResponseEntity<Expert>  findExpertByName(@PathVariable("name") String name) {
+        log.info("REST request to find one expert by name:[]", name);
+        Expert expertOpt = expertService.findExpertByName(name);
+        if( expertOpt != null){
+            return ResponseEntity.ok().body(expertOpt);
+        }else{
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }}
 
     @PostMapping("/experts")
     public ResponseEntity<Expert> createExpert(@RequestBody Expert expert) throws URISyntaxException {
@@ -49,6 +58,16 @@ public class ExpertController {
         return ResponseEntity
                 .created(new URI("/api/experts/" + result.getId())).body(result);
 
+    }
+    @PutMapping("/experts")
+    public ResponseEntity<Expert> updateExpert(@RequestBody Expert expert){
+        log.debug("REST request to update a expert{}", expert);
+        if (expert.getId() == null) {
+            log.warn("updating expert without id");
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+        Expert expertDB = expertService.updateExpert(expert);
+        return ResponseEntity.ok().body(expertDB);
     }
 
 }

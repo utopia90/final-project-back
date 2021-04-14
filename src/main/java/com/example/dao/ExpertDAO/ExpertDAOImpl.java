@@ -1,6 +1,7 @@
 package com.example.dao.ExpertDAO;
 
 import com.example.model.Expert;
+import org.hibernate.query.Query;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
@@ -27,17 +28,31 @@ public class ExpertDAOImpl implements ExpertDAO {
 
     @Override
     public Expert findExpertByName(String name) {
-        return null;
+        Query<Expert> query = (Query<Expert>) this.manager.createQuery("SELECT e FROM Expert e where e.name = :name");
+        query.setParameter("name", name);
+        Expert expert = query.uniqueResult();
+        return expert;
     }
 
     @Override
     public Expert findExpertById(Long id) {
         Expert expert = manager.find(Expert.class,id);
         if (expert == null) {
-            throw new EntityNotFoundException("Can't find Expert for ID "
+            throw new EntityNotFoundException("Can't find Expert by ID "
                     + id);
         }
         return expert;
+    }
+
+    @Override
+    public Expert updateExpert(Expert expert) {
+      Expert updatedExpert = manager.find(Expert.class, expert.getId());
+      updatedExpert.setName(expert.getName());
+      updatedExpert.setMail(expert.getMail());
+      updatedExpert.setSurname(expert.getSurname());
+      updatedExpert.setPhone(expert.getPhone());
+      manager.merge(updatedExpert);
+      return updatedExpert;
     }
 
 

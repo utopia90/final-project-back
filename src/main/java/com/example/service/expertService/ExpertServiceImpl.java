@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 import javax.transaction.Transactional;
 import java.util.List;
-import java.util.Optional;
 
 @Service
 @Transactional
@@ -42,6 +41,11 @@ public class ExpertServiceImpl implements ExpertService {
     @Override
     public Expert createExpert(Expert expert ) {
       return this.expertDAO.postExpert(expert);
+    }
+
+    @Override
+    public Expert updateExpert( Expert expert) {
+        return this.expertDAO.updateExpert(expert);
     }
 
 }
