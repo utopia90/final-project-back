@@ -69,5 +69,10 @@ public class ExpertController {
         Expert expertDB = expertService.updateExpert(expert);
         return ResponseEntity.ok().body(expertDB);
     }
+    @DeleteMapping("/experts/{id}")
+    public ResponseEntity<Void> deleteDogs(@PathVariable Long id){
+        log.debug("REST request to delete a expert by Id{} ", id);
+        return expertService.deleteById(id);
+    }
 
 }

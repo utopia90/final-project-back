@@ -2,6 +2,7 @@ package com.example.service.expertService;
 
 import com.example.dao.ExpertDAO.ExpertDAO;
 import com.example.model.Expert;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PathVariable;
 
@@ -46,6 +47,11 @@ public class ExpertServiceImpl implements ExpertService {
     @Override
     public Expert updateExpert( Expert expert) {
         return this.expertDAO.updateExpert(expert);
+    }
+
+    @Override
+    public ResponseEntity<Void> deleteById(@PathVariable Long id) {
+        return this.expertDAO.deleteExpert(id);
     }
 
 }

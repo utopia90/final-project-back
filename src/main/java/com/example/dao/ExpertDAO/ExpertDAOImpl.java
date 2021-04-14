@@ -2,6 +2,7 @@ package com.example.dao.ExpertDAO;
 
 import com.example.model.Expert;
 import org.hibernate.query.Query;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
@@ -55,5 +56,10 @@ public class ExpertDAOImpl implements ExpertDAO {
       return updatedExpert;
     }
 
-
+    @Override
+    public ResponseEntity<Void> deleteExpert(Long id) {
+        Expert expert=this.manager.find(Expert.class,id);
+        this.manager.remove(expert);
+        return ResponseEntity.noContent().build();
+    }
 }
