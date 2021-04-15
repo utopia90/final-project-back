@@ -52,6 +52,15 @@ public class ExpertDAOImpl implements ExpertDAO {
       updatedExpert.setMail(expert.getMail());
       updatedExpert.setSurname(expert.getSurname());
       updatedExpert.setPhone(expert.getPhone());
+      updatedExpert.setAvailability(expert.getAvailability());
+      updatedExpert.setAddress(expert.getAddress());
+      updatedExpert.setCreated_at(expert.getCreated_at());
+      updatedExpert.setUpdated_at(expert.getUpdated_at());
+      updatedExpert.setDni(expert.getDni());
+      updatedExpert.setLinkedln(expert.getLinkedln());
+      updatedExpert.setRating(expert.getRating());
+      updatedExpert.setState(expert.getState());
+      updatedExpert.setTags(expert.getTags());
       manager.merge(updatedExpert);
       return updatedExpert;
     }
