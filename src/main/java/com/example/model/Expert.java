@@ -25,6 +25,8 @@ public class Expert {
     private String linkedln;
     private String state;
     private String rating;
+    private String availability;
+
 
 
     @ManyToMany(mappedBy="expert", cascade = CascadeType.MERGE,fetch = FetchType.LAZY)
@@ -35,7 +37,7 @@ public class Expert {
     public Expert() {
     }
 
-    public Expert(String name, String surname, String dni, String address, String mail, String phone, String created_at, String updated_at, String linkedln, String state, String rating, List<Tag> tags) {
+    public Expert(String name, String surname, String dni, String address, String mail, String phone, String created_at, String updated_at, String linkedln, String state, String rating, List<Tag> tags, String availability) {
         this.name = name;
         this.surname = surname;
         this.dni = dni;
@@ -48,6 +50,7 @@ public class Expert {
         this.state = state;
         this.rating = rating;
         this.tags = tags;
+        this.availability = availability;
     }
 
     public Long getId() {
@@ -152,6 +155,14 @@ public class Expert {
 
     public void setTags(List<Tag> tags) {
         this.tags = tags;
+    }
+
+    public String getAvailability() {
+        return availability;
+    }
+
+    public void setAvailability(String availability) {
+        this.availability = availability;
     }
 
     @Override
