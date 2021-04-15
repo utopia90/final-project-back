@@ -1,4 +1,5 @@
-insert into experts(name,surname) values ('Alan', 'Sastre');
-insert into experts(name,surname) values ('Martin', 'San Jose');
-insert into tags(name) values ('java');
-insert into tags(name) values ('angular');
+insert into experts(name,surname,dni,address,mail,phone,created_at,updated_at,linkedln,state,rating,tags)
+values
+('Alan', 'Sastre','172382193D', 'calle del pino,n 2, león','15/04/2021', '16/05/2021',
+'https://www.linkedin.com/in/sara-b-54b93543/', 'validado', '100',{'java', 'hibernate', 'spring'});
+
