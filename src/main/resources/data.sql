@@ -73,9 +73,7 @@ insert into tags(name)values('git');
 insert into tags(name)values('maven');
 
 
-insert into experts_tags(expert_id, tag_id)values(1,1);
-insert into experts_tags(expert_id, tag_id)values(1,2);
-insert into experts_tags(expert_id, tag_id)values(1,3);
+
 
 
 
