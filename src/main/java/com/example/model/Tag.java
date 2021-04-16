@@ -17,12 +17,12 @@ public class Tag {
     private Long id;
     private String name;
 
-    @ManyToMany(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
-//    @JoinTable(
-//            name = "experts_tags",
-//            joinColumns = {@JoinColumn(name="tag_id", referencedColumnName = "id")},
-//            inverseJoinColumns = {@JoinColumn(name="expert_id", referencedColumnName = "id")}
-//    )
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinTable(
+           name = "experts_tags",
+           joinColumns = {@JoinColumn(name="tag_id", referencedColumnName = "id")},
+           inverseJoinColumns = {@JoinColumn(name="expert_id", referencedColumnName = "id")}
+   )
     private List<Expert> expert = new ArrayList<>();
 
     public Tag() {

@@ -2,9 +2,11 @@ package com.example.dao.ExpertDAO;
 
 import com.example.model.Expert;
 import org.hibernate.query.Query;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Repository;
 
+import javax.enterprise.inject.Produces;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityNotFoundException;
 import javax.persistence.PersistenceContext;

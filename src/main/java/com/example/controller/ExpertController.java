@@ -6,12 +6,15 @@ import com.example.service.expertService.ExpertService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.ws.rs.Consumes;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 @RestController
@@ -50,6 +53,7 @@ public class ExpertController {
         }}
 
     @PostMapping("/experts")
+    @ResponseBody
     public ResponseEntity<Expert> createExpert(@RequestBody Expert expert) throws URISyntaxException {
         log.debug("REST request to save a expert: {}", expert);
         if (expert.getId() != null)
