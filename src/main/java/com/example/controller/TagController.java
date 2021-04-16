@@ -1,6 +1,5 @@
 package com.example.controller;
 
-import com.example.model.Expert;
 import com.example.model.Tag;
 import com.example.service.tagService.TagService;
 import org.slf4j.Logger;
@@ -17,11 +16,12 @@ import java.util.List;
 public class TagController {
 
     private final TagService tagService;
-    private final Logger log = LoggerFactory.getLogger(ExpertController.class);
+    private final Logger log = LoggerFactory.getLogger(TagController.class);
 
     public TagController(TagService tagService){
         this.tagService = tagService;
     }
+
     @GetMapping("/tags")
     public List<Tag> findAll() {
         return tagService.findAllTags();
