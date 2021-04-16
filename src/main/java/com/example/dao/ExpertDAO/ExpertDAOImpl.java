@@ -56,8 +56,6 @@ public class ExpertDAOImpl implements ExpertDAO {
       updatedExpert.setPhone(expert.getPhone());
       updatedExpert.setAvailability(expert.getAvailability());
       updatedExpert.setAddress(expert.getAddress());
-      updatedExpert.setCreated_at(expert.getCreated_at());
-      updatedExpert.setUpdated_at(expert.getUpdated_at());
       updatedExpert.setDni(expert.getDni());
       updatedExpert.setLinkedln(expert.getLinkedln());
       updatedExpert.setRating(expert.getRating());
