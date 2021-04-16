@@ -1,8 +1,5 @@
 package com.example.service.tagService;
-
-import com.example.dao.ExpertDAO.ExpertDAO;
-import com.example.dao.ExpertDAO.TagDAO.TagDAO;
-import com.example.model.Expert;
+import com.example.dao.TagDAO.TagDAO;
 import com.example.model.Tag;
 
 import java.util.List;

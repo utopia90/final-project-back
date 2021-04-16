@@ -1,4 +1,4 @@
-package com.example.dao.ExpertDAO.TagDAO;
+package com.example.dao.TagDAO;
 
 import com.example.model.Expert;
 import com.example.model.Tag;
