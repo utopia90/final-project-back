@@ -53,7 +53,6 @@ public class ExpertController {
         }}
 
     @PostMapping("/experts")
-    @ResponseBody
     public ResponseEntity<Expert> createExpert(@RequestBody Expert expert) throws URISyntaxException {
         log.debug("REST request to save a expert: {}", expert);
         if (expert.getId() != null)
