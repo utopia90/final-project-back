@@ -22,6 +22,7 @@ public class TagController {
         this.tagService = tagService;
     }
 
+
     @GetMapping("/tags")
     public List<Tag> findAll() {
         return tagService.findAllTags();

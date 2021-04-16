@@ -2,12 +2,14 @@ package com.example.dao.TagDAO;
 
 import com.example.model.Expert;
 import com.example.model.Tag;
+import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityNotFoundException;
 import javax.persistence.PersistenceContext;
 import java.util.List;
 
+@Repository
 public class TagDAOImpl implements TagDAO{
     @PersistenceContext
     private EntityManager manager;
