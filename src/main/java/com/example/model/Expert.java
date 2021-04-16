@@ -30,7 +30,7 @@ public class Expert {
     private String availability;
 
 
-    @JsonManagedReference
+    @Transient
     @ManyToMany(mappedBy="expert", cascade = CascadeType.MERGE,fetch = FetchType.LAZY)
     private List<Tag> tags = new ArrayList<>();
 

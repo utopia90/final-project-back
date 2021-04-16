@@ -17,7 +17,7 @@ public class Tag {
     private Long id;
     private String name;
 
-    @JsonBackReference
+    @Transient
     @ManyToMany(cascade = CascadeType.MERGE, fetch = FetchType.LAZY)
 
     @JoinTable(
