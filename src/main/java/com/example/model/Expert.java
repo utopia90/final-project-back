@@ -31,7 +31,6 @@ public class Expert {
 
 
     @ManyToMany(mappedBy="expert", cascade = CascadeType.MERGE,fetch = FetchType.LAZY)
-    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     private List<Tag> tags = new ArrayList<>();
 
 
