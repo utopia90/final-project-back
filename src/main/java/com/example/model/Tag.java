@@ -18,8 +18,8 @@ public class Tag {
     private String name;
 
     @JsonBackReference
+    @Transient
     @ManyToMany(cascade = CascadeType.MERGE, fetch = FetchType.LAZY)
-    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 
     @JoinTable(
             name = "experts_tags",
