@@ -2,6 +2,7 @@ package com.example.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -29,7 +30,7 @@ public class Expert {
     private String availability;
 
 
-
+    @JsonManagedReference
     @ManyToMany(mappedBy="expert", cascade = CascadeType.MERGE,fetch = FetchType.LAZY)
     private List<Tag> tags = new ArrayList<>();
 

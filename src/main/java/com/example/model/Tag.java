@@ -1,6 +1,7 @@
 package com.example.model;
 
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
@@ -16,6 +17,7 @@ public class Tag {
     private Long id;
     private String name;
 
+    @JsonBackReference
     @ManyToMany(cascade = CascadeType.MERGE, fetch = FetchType.LAZY)
     @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 
