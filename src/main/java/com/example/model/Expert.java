@@ -22,8 +22,6 @@ public class Expert {
     private String address;
     private String mail;
     private String phone;
-    private String created_at;
-    private String updated_at;
     private String linkedln;
     private String state;
     private String rating;
@@ -37,15 +35,13 @@ public class Expert {
     public Expert() {
     }
 
-    public Expert(String name, String surname, String dni, String address, String mail, String phone, String created_at, String updated_at, String linkedln, String state, String rating, List<Tag> tags, String availability) {
+    public Expert(String name, String surname, String dni, String address, String mail, String phone, String linkedln, String state, String rating, List<Tag> tags, String availability) {
         this.name = name;
         this.surname = surname;
         this.dni = dni;
         this.address = address;
         this.mail = mail;
         this.phone = phone;
-        this.created_at = created_at;
-        this.updated_at = updated_at;
         this.linkedln = linkedln;
         this.state = state;
         this.rating = rating;
@@ -109,22 +105,6 @@ public class Expert {
         this.phone = phone;
     }
 
-    public String getCreated_at() {
-        return created_at;
-    }
-
-    public void setCreated_at(String created_at) {
-        this.created_at = created_at;
-    }
-
-    public String getUpdated_at() {
-        return updated_at;
-    }
-
-    public void setUpdated_at(String updated_at) {
-        this.updated_at = updated_at;
-    }
-
     public String getLinkedln() {
         return linkedln;
     }
@@ -174,8 +154,6 @@ public class Expert {
                 ", address='" + address + '\'' +
                 ", mail='" + mail + '\'' +
                 ", phone='" + phone + '\'' +
-                ", created_at='" + created_at + '\'' +
-                ", updated_at='" + updated_at + '\'' +
                 ", linkedln='" + linkedln + '\'' +
                 ", state='" + state + '\'' +
                 ", rating='" + rating + '\'' +
