@@ -54,4 +54,9 @@ public class ExpertServiceImpl implements ExpertService {
         return this.expertDAO.deleteExpert(id);
     }
 
+    @Override
+    public ResponseEntity<Void> deleteAllExperts() {
+        return this.expertDAO.deleteAllExperts();
+    }
+
 }

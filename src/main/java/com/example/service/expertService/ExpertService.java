@@ -19,4 +19,6 @@ public interface ExpertService {
     Expert updateExpert(Expert expert);
 
     ResponseEntity<Void> deleteById(Long id);
+
+    ResponseEntity<Void> deleteAllExperts();
 }

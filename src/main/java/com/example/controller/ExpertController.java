@@ -75,4 +75,9 @@ public class ExpertController {
         log.debug("REST request to delete a expert by Id{} ", id);
         return expertService.deleteById(id);
     }
+    @DeleteMapping("/experts")
+    public ResponseEntity<Void> deleteAllExperts(){
+        log.debug("REST request to delete all experts");
+        return expertService.deleteAllExperts();
+    }
 }

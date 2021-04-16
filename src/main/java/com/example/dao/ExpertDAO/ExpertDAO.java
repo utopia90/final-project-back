@@ -14,4 +14,6 @@ public interface ExpertDAO {
     Expert findExpertById(Long id);
     Expert updateExpert(Expert expert);
     ResponseEntity<Void> deleteExpert(Long id);
+
+    ResponseEntity<Void> deleteAllExperts();
 }

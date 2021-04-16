@@ -71,4 +71,11 @@ public class ExpertDAOImpl implements ExpertDAO {
         this.manager.remove(expert);
         return ResponseEntity.noContent().build();
     }
+
+    @Override
+    public ResponseEntity<Void> deleteAllExperts() {
+        manager.createQuery("DELETE FROM Expert e");
+        return ResponseEntity.noContent().build();
+
+    }
 }
