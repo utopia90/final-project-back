@@ -2,6 +2,8 @@ package com.example.dao.TagDAO;
 
 import com.example.model.Expert;
 import com.example.model.Tag;
+import org.hibernate.query.Query;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
@@ -27,5 +29,12 @@ public class TagDAOImpl implements TagDAO{
                     + id);
         }
         return tag;
+    }
+
+    @Override
+    public ResponseEntity<Void> deleteAllTags() {
+        Query query = (Query) manager.createQuery("DELETE FROM Tag e");
+        query.executeUpdate();
+        return ResponseEntity.noContent().build();
     }
 }

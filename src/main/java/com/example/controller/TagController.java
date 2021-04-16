@@ -36,4 +36,9 @@ public class TagController {
         }else{
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }}
+    @DeleteMapping("/tags")
+    public ResponseEntity<Void> deleteAllTags(){
+        log.debug("REST request to delete all tags");
+        return tagService.deleteAllTags();
+    }
 }

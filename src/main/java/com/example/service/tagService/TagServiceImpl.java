@@ -1,6 +1,7 @@
 package com.example.service.tagService;
 import com.example.dao.TagDAO.TagDAO;
 import com.example.model.Tag;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -23,5 +24,10 @@ public class TagServiceImpl implements TagService{
     public Tag findTagById(Long id) {
         Tag tag =  this.tagDAO.findTagById(id);
         return tag;
+    }
+
+    @Override
+    public ResponseEntity<Void> deleteAllTags() {
+        return this.tagDAO.deleteAllTags();
     }
 }
