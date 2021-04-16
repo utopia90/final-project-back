@@ -1,4 +1,4 @@
-package com.example.dao.ExpertDAO;
+package com.example.dao;
 
 import com.example.model.Expert;
 import org.springframework.http.ResponseEntity;
