@@ -29,7 +29,7 @@ public class Expert {
 
 
 
-    @ManyToMany(mappedBy="expert", cascade = CascadeType.MERGE,fetch = FetchType.LAZY)
+    //@ManyToMany(mappedBy="expert", cascade = CascadeType.MERGE,fetch = FetchType.LAZY)
     @JsonIgnore
     private List<Tag> tags = new ArrayList<>();
 
