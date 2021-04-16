@@ -30,8 +30,7 @@ public class Expert {
     private String availability;
 
 
-    @Transient
-    @ManyToMany(mappedBy="expert", cascade = CascadeType.MERGE,fetch = FetchType.LAZY)
+    @ManyToMany(mappedBy="expert", cascade = CascadeType.MERGE,fetch = FetchType.EAGER)
     private List<Tag> tags = new ArrayList<>();
 
 

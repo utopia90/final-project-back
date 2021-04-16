@@ -17,8 +17,7 @@ public class Tag {
     private Long id;
     private String name;
 
-    @Transient
-    @ManyToMany(cascade = CascadeType.MERGE, fetch = FetchType.LAZY)
+    @ManyToMany(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
 
     @JoinTable(
             name = "experts_tags",
