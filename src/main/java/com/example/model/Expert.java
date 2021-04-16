@@ -1,6 +1,7 @@
 package com.example.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -30,6 +31,7 @@ public class Expert {
 
 
     @ManyToMany(mappedBy="expert", cascade = CascadeType.MERGE,fetch = FetchType.LAZY)
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     private List<Tag> tags = new ArrayList<>();
 
 

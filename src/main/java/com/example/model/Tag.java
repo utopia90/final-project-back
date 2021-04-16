@@ -1,6 +1,8 @@
 package com.example.model;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -14,7 +16,9 @@ public class Tag {
     private Long id;
     private String name;
 
-    @ManyToMany(cascade = CascadeType.MERGE)
+    @ManyToMany(cascade = CascadeType.MERGE, fetch = FetchType.LAZY)
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+
     @JoinTable(
             name = "experts_tags",
             joinColumns = {@JoinColumn(name="tag_id", referencedColumnName = "id")},
