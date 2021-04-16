@@ -18,8 +18,8 @@ import java.util.Map;
 import java.util.Optional;
 
 @RestController
-@CrossOrigin(origins = "*")
 @RequestMapping("/api")
+@CrossOrigin(origins = "*")
 public class ExpertController {
 
     private final ExpertService expertService;
