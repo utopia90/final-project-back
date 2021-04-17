@@ -30,4 +30,14 @@ public class TagServiceImpl implements TagService{
     public ResponseEntity<Void> deleteAllTags() {
         return this.tagDAO.deleteAllTags();
     }
+
+    @Override
+    public Tag createTag(Tag tag) {
+        return this.tagDAO.createTag(tag);
+    }
+
+    @Override
+    public Tag updateTag(Tag tag) {
+        return this.tagDAO.updateTag(tag);
+    }
 }

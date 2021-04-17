@@ -37,4 +37,18 @@ public class TagDAOImpl implements TagDAO{
         query.executeUpdate();
         return ResponseEntity.noContent().build();
     }
+
+    @Override
+    public Tag createTag(Tag tag) {
+        this.manager.persist(tag);
+        return tag;
+    }
+
+    @Override
+    public Tag updateTag(Tag tag) {
+        Tag updatedTag= manager.find(Tag.class, tag.getId());
+        updatedTag.setName(tag.getName());
+        manager.merge(updatedTag);
+        return updatedTag;
+    }
 }

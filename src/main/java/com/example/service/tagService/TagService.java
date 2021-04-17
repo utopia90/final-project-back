@@ -11,4 +11,8 @@ public interface TagService {
     Tag findTagById(Long id);
 
     ResponseEntity<Void> deleteAllTags();
+
+    Tag createTag(Tag tag);
+
+    Tag updateTag(Tag tag);
 }
