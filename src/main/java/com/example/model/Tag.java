@@ -21,7 +21,7 @@ public class Tag {
     @JoinTable(
            name = "experts_tags",
            joinColumns = {@JoinColumn(name="tag_id", referencedColumnName = "id")},
-           inverseJoinColumns = {@JoinColumn(name="expert_id", referencedColumnName = "id")}
+           inverseJoinColumns = {@JoinColumn(name="experts_id", referencedColumnName = "id")}
    )
     private List<Expert> expert = new ArrayList<>();
 
