@@ -17,7 +17,7 @@ public class Tag {
     private Long id;
     private String name;
 
-    @ManyToMany(cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    @ManyToMany()
     @JoinTable(
            name = "experts_tags",
            joinColumns = {@JoinColumn(name="tag_id", referencedColumnName = "id")},
