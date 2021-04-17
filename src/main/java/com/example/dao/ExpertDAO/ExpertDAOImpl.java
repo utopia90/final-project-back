@@ -23,6 +23,7 @@ public class ExpertDAOImpl implements ExpertDAO {
     }
 
     @Override
+    @Transactional
     public Expert postExpert(Expert expert) {
          this.manager.persist(expert);
          this.manager.flush();
