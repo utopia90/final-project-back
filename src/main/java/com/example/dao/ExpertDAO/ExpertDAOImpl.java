@@ -24,6 +24,7 @@ public class ExpertDAOImpl implements ExpertDAO {
 
     @Override
     public Expert postExpert(Expert expert) {
+         this.manager.save(expert);
          this.manager.persist(expert);
          return expert;
     }
