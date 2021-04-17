@@ -28,7 +28,7 @@ public class Expert {
     private String availability;
 
 
-    @ManyToMany(mappedBy="expert", cascade = CascadeType.PERSIST,fetch = FetchType.EAGER)
+    @ManyToMany(mappedBy="expert", fetch = FetchType.EAGER)
     private List<Tag> tags = new ArrayList<>();
 
 
