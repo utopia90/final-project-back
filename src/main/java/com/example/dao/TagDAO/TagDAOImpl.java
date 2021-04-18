@@ -41,7 +41,6 @@ public class TagDAOImpl implements TagDAO{
     @Override
     public Tag createTag(Tag tag) {
         this.manager.persist(tag);
-        this.manager.flush();
         return tag;
     }
 

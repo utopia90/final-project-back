@@ -27,7 +27,6 @@ public class ExpertDAOImpl implements ExpertDAO {
     public Expert postExpert(Expert expert) {
 
          this.manager.persist(expert);
-         this.manager.flush();
          return expert;
     }
 
