@@ -5,6 +5,7 @@ import org.hibernate.query.Query;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Repository;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import javax.enterprise.inject.Produces;
 import javax.persistence.EntityManager;
@@ -24,8 +25,7 @@ public class ExpertDAOImpl implements ExpertDAO {
     }
 
     @Override
-    public Expert postExpert(Expert expert) {
-
+    public Expert postExpert(@RequestBody Expert expert) {
          this.manager.persist(expert);
          return expert;
     }
