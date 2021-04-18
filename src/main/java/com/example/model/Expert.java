@@ -30,7 +30,6 @@ public class Expert {
 
 
     @ManyToMany()
-    @JsonIgnore
     @JoinTable(
             name = "experts_tags",
             joinColumns = {@JoinColumn(name="tags_id", referencedColumnName = "id")},
