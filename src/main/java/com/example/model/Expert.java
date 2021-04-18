@@ -28,7 +28,13 @@ public class Expert {
     private String availability;
 
 
-    @ManyToMany(mappedBy="expert", cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+
+    @ManyToMany()
+    @JoinTable(
+            name = "experts_tags",
+            joinColumns = {@JoinColumn(name="tags_id", referencedColumnName = "id")},
+            inverseJoinColumns = {@JoinColumn(name="experts_id", referencedColumnName = "id")}
+    )
     private List<Tag> tags = new ArrayList<>();
 
 
