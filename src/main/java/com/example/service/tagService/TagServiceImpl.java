@@ -4,9 +4,11 @@ import com.example.model.Tag;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 @Service
+@Transactional
 public class TagServiceImpl implements TagService{
 
     private final TagDAO tagDAO;
