@@ -17,7 +17,7 @@ public class Tag {
     private Long id;
     private String name;
 
-    @ManyToMany(mappedBy="expert", cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    @ManyToMany(mappedBy="tags", cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
     private List<Expert> experts = new ArrayList<>();
 
     public Tag() {
