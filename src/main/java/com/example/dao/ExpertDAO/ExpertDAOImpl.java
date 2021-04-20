@@ -52,7 +52,7 @@ public class ExpertDAOImpl implements ExpertDAO {
 
     @Override
     public Expert updateExpert(Expert expert) {
-      Expert updatedExpert = manager.find(Expert.class, expert.getId());
+      Expert updatedExpert = manager.find(Expert.class, expert.getDni());
       updatedExpert.setName(expert.getName());
       updatedExpert.setMail(expert.getMail());
       updatedExpert.setSurname(expert.getSurname());
