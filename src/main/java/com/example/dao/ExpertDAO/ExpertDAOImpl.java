@@ -1,6 +1,7 @@
 package com.example.dao.ExpertDAO;
 
 import com.example.model.Expert;
+import com.example.model.Tag;
 import org.hibernate.query.Query;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -63,7 +64,7 @@ public class ExpertDAOImpl implements ExpertDAO {
       updatedExpert.setLinkedln(expert.getLinkedln());
       updatedExpert.setRating(expert.getRating());
       updatedExpert.setState(expert.getState());
-      updatedExpert.setTags(expert.getTags());
+      updatedExpert.getTags().add((Tag) expert.getTags());
       manager.merge(updatedExpert);
       return updatedExpert;
     }
