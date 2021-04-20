@@ -64,7 +64,7 @@ public class ExpertDAOImpl implements ExpertDAO {
       updatedExpert.setLinkedln(expert.getLinkedln());
       updatedExpert.setRating(expert.getRating());
       updatedExpert.setState(expert.getState());
-      updatedExpert.getTags().add((Tag) expert.getTags());
+      updatedExpert.getTags().addAll(expert.getTags());
       manager.merge(updatedExpert);
       return updatedExpert;
     }
