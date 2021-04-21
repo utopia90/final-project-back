@@ -29,7 +29,7 @@ public class Expert {
 
 
 
-    @ManyToMany(fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST})
+    @ManyToMany(fetch = FetchType.EAGER, cascade = {CascadeType.ALL})
     @JoinTable(
             name = "experts_tags",
             joinColumns = {@JoinColumn(name="tags_id", referencedColumnName = "id")},
