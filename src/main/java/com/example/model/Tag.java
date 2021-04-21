@@ -23,6 +23,11 @@ public class Tag {
     public Tag() {
     }
 
+    public Tag(String name, List<Expert> experts) {
+        this.name = name;
+        this.experts = experts;
+    }
+
     public Tag(String name) {
         this.name = name;
     }
