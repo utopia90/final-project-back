@@ -9,7 +9,6 @@ import org.springframework.stereotype.Repository;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityNotFoundException;
 import javax.persistence.PersistenceContext;
-import javax.transaction.Transactional;
 import java.util.List;
 
 @Repository
@@ -42,7 +41,6 @@ public class TagDAOImpl implements TagDAO{
     @Override
     public Tag createTag(Tag tag) {
         this.manager.persist(tag);
-        this.manager.flush();
         return tag;
     }
 
@@ -52,12 +50,5 @@ public class TagDAOImpl implements TagDAO{
         updatedTag.setName(tag.getName());
         manager.merge(updatedTag);
         return updatedTag;
-    }
-
-    @Override
-    public ResponseEntity<Void> deleteById(Long id) {
-        Tag tag=this.manager.find(Tag.class,id);
-        this.manager.remove(tag);
-        return ResponseEntity.noContent().build();
     }
 }
