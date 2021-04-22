@@ -48,13 +48,7 @@ public class Tag {
         this.name = name;
     }
 
-    public List<Expert> getExperts() {
-        return experts;
-    }
 
-    public void setExperts(List<Expert> experts) {
-        this.experts = experts;
-    }
 
     @Override
     public String toString() {
