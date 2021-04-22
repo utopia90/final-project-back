@@ -2,6 +2,7 @@ package com.example.model;
 
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
@@ -48,7 +49,14 @@ public class Tag {
         this.name = name;
     }
 
-
+    @JsonIgnore
+    public List<Expert> getExperts() {
+        return experts;
+    }
+    @JsonIgnore
+    public void setExperts(List<Expert> experts) {
+        this.experts = experts;
+    }
 
     @Override
     public String toString() {
