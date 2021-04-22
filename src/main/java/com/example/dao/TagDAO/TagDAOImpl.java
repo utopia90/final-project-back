@@ -1,6 +1,5 @@
 package com.example.dao.TagDAO;
 
-import com.example.model.Expert;
 import com.example.model.Tag;
 import org.hibernate.query.Query;
 import org.springframework.http.ResponseEntity;

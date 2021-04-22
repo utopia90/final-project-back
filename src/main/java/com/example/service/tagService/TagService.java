@@ -16,5 +16,4 @@ public interface TagService {
 
     Tag updateTag(Tag tag);
 
-    ResponseEntity<Void> deleteById(Long id);
 }
