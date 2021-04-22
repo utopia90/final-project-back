@@ -62,10 +62,10 @@ public class TagDAOImpl implements TagDAO{
             for(Tag tag : expert.getTags()){
                 if(tag.getId() == tagToDelete.getId()){
                     expert.getTags().remove(tagToDelete);
-                    manager.merge(expert);
                 }
             }
         }
+        manager.flush();
         return ResponseEntity.noContent().build();
     }
 }
