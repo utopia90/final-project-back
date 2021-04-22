@@ -16,4 +16,5 @@ public interface TagDAO {
 
     Tag updateTag(Tag tag);
 
+    ResponseEntity<Void> deleteTagById(Long id);
 }

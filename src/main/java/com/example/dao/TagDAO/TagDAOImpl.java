@@ -1,5 +1,6 @@
 package com.example.dao.TagDAO;
 
+import com.example.model.Expert;
 import com.example.model.Tag;
 import org.hibernate.query.Query;
 import org.springframework.http.ResponseEntity;
@@ -49,5 +50,19 @@ public class TagDAOImpl implements TagDAO{
         updatedTag.setName(tag.getName());
         manager.merge(updatedTag);
         return updatedTag;
+    }
+
+    @Override
+    public ResponseEntity<Void> deleteTagById(Long id) {
+        Expert expert = (Expert) manager.createQuery("SELECT  Expert from Tag u where u.id = :id");
+
+        for(Tag tag : expert.getTags()){
+            if (tag.getId() == id){
+                expert.getTags().remove(tag);
+                manager.persist(expert);
+            }
+        }
+        return ResponseEntity.noContent().build();
+
     }
 }
