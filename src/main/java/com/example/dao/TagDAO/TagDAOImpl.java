@@ -52,4 +52,11 @@ public class TagDAOImpl implements TagDAO{
         manager.merge(updatedTag);
         return updatedTag;
     }
+
+    @Override
+    public ResponseEntity<Void> deleteById(Long id) {
+        Tag tag=this.manager.find(Tag.class,id);
+        this.manager.remove(tag);
+        return ResponseEntity.noContent().build();
+    }
 }

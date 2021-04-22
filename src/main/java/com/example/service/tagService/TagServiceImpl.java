@@ -42,4 +42,9 @@ public class TagServiceImpl implements TagService{
     public Tag updateTag(Tag tag) {
         return this.tagDAO.updateTag(tag);
     }
+
+    @Override
+    public ResponseEntity<Void> deleteById(Long id) {
+        return this.tagDAO.deleteById(id);
+    }
 }
