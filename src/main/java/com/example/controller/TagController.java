@@ -68,8 +68,8 @@ public class TagController {
         log.debug("REST request to delete all tags");
         return tagService.deleteAllTags();
     }
-    @DeleteMapping("/tags/expertTag")
-    public ResponseEntity<Void> deleteTagById(@RequestParam Long id){
+    @DeleteMapping("/tags/{id}")
+    public ResponseEntity<Void> deleteTagById(@PathVariable Long id){
 
         log.debug("REST request to delete a tag by Id{} ", id);
         return tagService.deleteById(id);
