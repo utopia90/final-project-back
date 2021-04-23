@@ -69,8 +69,7 @@ public class TagController {
         return tagService.deleteAllTags();
     }
     @DeleteMapping("/tags/expertTag")
-    public ResponseEntity<Void> deleteTagById(@RequestParam Long id, HttpServletResponse response){
-        response.setHeader("Access-Control-Allow-Methods", "*");
+    public ResponseEntity<Void> deleteTagById(@RequestParam Long id){
 
         log.debug("REST request to delete a tag by Id{} ", id);
         return tagService.deleteById(id);
