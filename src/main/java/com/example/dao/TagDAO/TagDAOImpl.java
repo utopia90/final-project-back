@@ -61,10 +61,9 @@ public class TagDAOImpl implements TagDAO{
 
 
         for(Expert expert: experts){
-            for(Tag tag : expert.getTags()){
-                if (tag.getId() == id){
-                    expert.getTags().remove(tag);
-                }
+                if (expert.getTags().contains(tagToDelete)){
+                    expert.getTags().remove(tagToDelete);
+
             }
 
         }
