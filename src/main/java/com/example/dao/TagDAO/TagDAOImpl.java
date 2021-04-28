@@ -61,6 +61,7 @@ public class TagDAOImpl implements TagDAO{
 
 
             manager.createNativeQuery("delete from experts e where e.tags.id="+id);
+            manager.flush();
 
 
         }
