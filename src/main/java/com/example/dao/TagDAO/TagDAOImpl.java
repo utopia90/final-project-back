@@ -60,7 +60,7 @@ public class TagDAOImpl implements TagDAO{
         if(id!=null){
 
 
-            manager.createNativeQuery("delete from experts_tags where tags_id ="+id);
+            manager.createNativeQuery("delete from experts_tags where tags_id like"+id);
 
 
         }
