@@ -18,7 +18,7 @@ public class Tag {
     private Long id;
     private String name;
 
-    @ManyToMany(mappedBy="tags", cascade = {CascadeType.ALL})
+    @ManyToMany(mappedBy="tags", cascade = {CascadeType.PERSIST})
     private List<Expert> experts = new ArrayList<>();
 
     public Tag() {
