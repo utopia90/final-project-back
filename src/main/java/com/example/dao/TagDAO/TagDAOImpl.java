@@ -54,10 +54,18 @@ public class TagDAOImpl implements TagDAO{
 
     @Override
     public ResponseEntity<Void> deleteTagById(Long id) {
-        Tag tagToDelete = manager.find(Tag.class,id);
-        List<Expert> experts = tagToDelete.getExperts();
+        /*Tag tagToDelete = manager.find(Tag.class,id);
+        List<Expert> experts = tagToDelete.getExperts();*/
 
-        for(Expert expert: experts){
+        if(id!=null){
+
+
+            manager.createNativeQuery("delete from experts_tags where tags_id ="+id);
+
+        }
+
+
+        /*for(Expert expert: experts){
             for(Tag tag : expert.getTags()){
                 if (tag.getId() == id){
                     expert.getTags().remove(tag);
@@ -65,7 +73,7 @@ public class TagDAOImpl implements TagDAO{
                 }
             }
 
-        }
+        }*/
         return ResponseEntity.noContent().build();
 
     }
