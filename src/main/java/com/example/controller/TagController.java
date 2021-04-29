@@ -62,6 +62,11 @@ public class TagController {
         Tag tagupdated = tagService.updateTag(tag);
         return ResponseEntity.ok().body(tagupdated);
     }
+    @DeleteMapping("/tags/{id}")
+    public ResponseEntity<Void> deleteTagById(@PathVariable Long id){
+        log.debug("REST request to delete a tag by Id{} ", id);
+        return tagService.deleteById(id);
+    }
     @DeleteMapping("/tags")
     public ResponseEntity<Void> deleteAllTags(){
         log.debug("REST request to delete all tags");
