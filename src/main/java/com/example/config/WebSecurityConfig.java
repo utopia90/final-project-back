@@ -68,19 +68,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         source.registerCorsConfiguration("api/**", configuration);
         return source;
     }
-    @Bean
-    public WebMvcConfigurer corsConfigurer() {
-        return new WebMvcConfigurer() {
-            @Override
-            public void addCorsMappings(CorsRegistry registry) {
-                registry.addMapping("/api/**")
-                        .allowedMethods("HEAD", "GET", "POST", "PUT", "DELETE", "OPTIONS", "PATCH")
-                        .allowedHeaders("*").allowedOrigins("*").exposedHeaders(
-                        "Access-Control-Allow-Origin", "Access-Control-Allow-Methods",
-                        "Access-Control-Max-Age", "Access-Control-Allow-Headers");
-            }
-        };
-    }
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {

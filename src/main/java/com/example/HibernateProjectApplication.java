@@ -24,10 +24,15 @@ public class HibernateProjectApplication extends SpringBootServletInitializer {
 		return new WebMvcConfigurer() {
 			@Override
 			public void addCorsMappings(CorsRegistry registry) {
-				registry.addMapping("/api").allowedOrigins("*").allowedMethods("DELETE", "POST", "PUT", "GET", "OPTIONS").allowedHeaders("*");
+				registry.addMapping("/api/**")
+						.allowedMethods("HEAD", "GET", "POST", "PUT", "DELETE", "OPTIONS", "PATCH")
+						.allowedHeaders("*").allowedOrigins("*").exposedHeaders(
+						"Access-Control-Allow-Origin", "Access-Control-Allow-Methods",
+						"Access-Control-Max-Age", "Access-Control-Allow-Headers");
 			}
 		};
 	}
+
 
 
 }
