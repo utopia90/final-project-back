@@ -43,7 +43,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .permitAll()
                 .anyRequest().authenticated() // all requests are authenticated
                 .and()
-                .httpBasic();
+                .cors();
 
     }
     @Bean
