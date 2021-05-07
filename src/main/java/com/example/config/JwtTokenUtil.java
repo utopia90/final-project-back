@@ -15,9 +15,8 @@ import io.jsonwebtoken.UnsupportedJwtException;
 
 @Component
 public class JwtTokenUtil {
-    @Value("${jwttoken.secret}")
+
     private String jwtTokenSecret;
-    @Value("${jwttoken.expiration}")
     private long jwtTokenExpiration;
 
     public String generateJwtToken(Authentication authentication) {
