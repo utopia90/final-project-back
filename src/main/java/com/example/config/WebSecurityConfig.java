@@ -20,8 +20,14 @@ import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.cors().and().authorizeRequests().anyRequest().permitAll()
-                .and().csrf().disable();
+        http
+                .csrf().disable()
+                .authorizeRequests() // authorize
+                .anyRequest().authenticated() // all requests are authenticated
+                .and()
+                .httpBasic();
+
+        http.cors();
 
     }
     @Bean
