@@ -16,6 +16,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 
+
 @RestController
 @CrossOrigin(origins = "*")
 @RequestMapping("/api")
@@ -49,12 +50,15 @@ public class UserController {
     }
 
     @PostMapping("/login")
-    public void userLogin(@RequestBody User user) {
+    public ResponseEntity<?> userLogin(@RequestBody User user) {
         Authentication authentication = authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(user.getUsername(), user.getPassword()));
         SecurityContextHolder.getContext().setAuthentication(authentication);
 
             String token = JwtTokenUtil.generateJwtToken(authentication);
             User userBean = (User) authentication.getPrincipal();
+
+        return ResponseEntity.ok(token);
+
     }
 }
