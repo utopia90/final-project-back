@@ -13,6 +13,8 @@ import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.SignatureException;
 import io.jsonwebtoken.UnsupportedJwtException;
 
+import static sun.security.x509.CertificateX509Key.KEY;
+
 @Component
 public class JwtTokenUtil {
 
@@ -25,7 +27,7 @@ public class JwtTokenUtil {
                 .setSubject(userPrincipal.getUsername())
                 .setIssuedAt(new Date(System.currentTimeMillis()))
                 .setExpiration(new Date(System.currentTimeMillis() + 1000 * 60 * 60 * 10))
-                .compact();
+                .signWith(SignatureAlgorithm.HS256, KEY).compact();
     }
 
     public boolean validateJwtToken(String token) {
