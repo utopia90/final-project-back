@@ -27,7 +27,8 @@ public class JwtTokenUtil {
                 .setSubject(userPrincipal.getUsername())
                 .setIssuedAt(new Date(System.currentTimeMillis()))
                 .setExpiration(new Date(System.currentTimeMillis() + 1000 * 60 * 60 * 10))
-                .signWith(SignatureAlgorithm.HS256, KEY).compact();
+                .signWith(SignatureAlgorithm.HS512, jwtTokenSecret)
+                .compact();
     }
 
     public boolean validateJwtToken(String token) {
