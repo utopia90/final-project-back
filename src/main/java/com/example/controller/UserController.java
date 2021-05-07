@@ -54,10 +54,9 @@ public class UserController {
                 new UsernamePasswordAuthenticationToken(user.getUsername(), user.getPassword()));
         SecurityContextHolder.getContext().setAuthentication(authentication);
 
-        if (userService.findByEmailAndPassword(user.getEmail(), user.getPassword())) {
             String token = JwtTokenUtil.generateJwtToken(authentication);
             User userBean = (User) authentication.getPrincipal();
-        }
+
         return ResponseEntity.ok(user);
 
     }
