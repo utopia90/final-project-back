@@ -1,10 +1,14 @@
 package com.example.config;
 
+import java.security.Key;
 import java.util.Date;
+
+import com.auth0.jwt.algorithms.Algorithm;
+import io.jsonwebtoken.security.Keys;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Component;
-import com.example.model.User;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.ExpiredJwtException;
 import io.jsonwebtoken.Jwts;
@@ -23,12 +27,11 @@ public class JwtTokenUtil {
 
     public String generateJwtToken(Authentication authentication) {
         User userPrincipal = (User)authentication.getPrincipal();
-        return Jwts.builder()
-                .setSubject(userPrincipal.getUsername())
-                .setIssuedAt(new Date(System.currentTimeMillis()))
-                .setExpiration(new Date(System.currentTimeMillis() + 1000 * 60 * 60 * 10))
-                .signWith(SignatureAlgorithm.HS512, jwtTokenSecret)
-                .compact();
+        Key key = Keys.hmacShaKeyFor("IrE9Rig9YqlkyoFZgeObr1Lbi8ZWR86UUDtLeFaqpAsRRf8H1zxoKQEXOcoHw9n0".getBytes());
+        Claims claims = Jwts.claims().setSubject(userPrincipal.getUsername());
+        String token = Jwts.builder().setClaims(claims).signWith(key, SignatureAlgorithm.HS512).setExpiration(new Date(System.currentTimeMillis() + 1000 * 60 * 60 * 10)).compact();
+
+        return token;
     }
 
     public boolean validateJwtToken(String token) {
