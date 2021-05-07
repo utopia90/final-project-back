@@ -28,7 +28,9 @@ public class HibernateProjectApplication extends SpringBootServletInitializer {
 						.allowedMethods("HEAD", "GET", "POST", "PUT", "DELETE", "OPTIONS", "PATCH")
 						.allowedHeaders("*").allowedOrigins("*").exposedHeaders(
 						"Access-Control-Allow-Origin", "Access-Control-Allow-Methods",
-						"Access-Control-Max-Age", "Access-Control-Allow-Headers");
+						"Access-Control-Max-Age", "Access-Control-Allow-Headers",
+						"Access-Control-Allow-Headers","Origin, Content-Type, X-Auth-Token, content-type"
+						);
 			}
 		};
 	}
