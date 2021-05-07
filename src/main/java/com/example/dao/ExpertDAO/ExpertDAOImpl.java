@@ -83,5 +83,8 @@ public class ExpertDAOImpl implements ExpertDAO {
         Query query = (Query) manager.createQuery("DELETE FROM Expert e");
         query.executeUpdate();
         return ResponseEntity.noContent().build();
+
+
+
     }
 }
