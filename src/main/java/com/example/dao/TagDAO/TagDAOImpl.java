@@ -58,14 +58,14 @@ public class TagDAOImpl implements TagDAO{
         this.manager.remove(tag);
         return ResponseEntity.noContent().build();
         Tag tagDeleted = manager.find(Tag.class,id);
-        List<Expert> experts = tagToDeleted.getExperts();
+        List<Expert> experts = tagDeleted.getExperts();
 
 
 
 
         for(Expert expert: experts){
-                if (expert.getTags().contains(tagToDelete)){
-                    expert.getTags().remove(tagToDelete);
+                if (expert.getTags().contains(tagDeleted)){
+                    expert.getTags().remove(tagDeleted);
 
             }
 
