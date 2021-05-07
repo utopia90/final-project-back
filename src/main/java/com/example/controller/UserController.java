@@ -18,7 +18,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 
-@CrossOrigin(origins = "*", exposedHeaders="Access-Control-Allow-Origin")
+@CrossOrigin(origins = "*",  allowedHeaders = "*")
 @RestController
 @RequestMapping("/api")
 public class UserController {
