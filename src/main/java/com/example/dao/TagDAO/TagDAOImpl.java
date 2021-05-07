@@ -55,17 +55,14 @@ public class TagDAOImpl implements TagDAO{
     @Override
     public ResponseEntity<Void> deleteTagById(Long id) {
         Tag tag=this.manager.find(Tag.class,id);
-        this.manager.remove(tag);
-        return ResponseEntity.noContent().build();
-        Tag tagDeleted = manager.find(Tag.class,id);
-        List<Expert> experts = tagDeleted.getExperts();
+        List<Expert> experts = tag.getExperts();
 
 
 
 
         for(Expert expert: experts){
-                if (expert.getTags().contains(tagDeleted)){
-                    expert.getTags().remove(tagDeleted);
+                if (expert.getTags().contains(tag)){
+                    expert.getTags().remove(tag);
 
             }
 
