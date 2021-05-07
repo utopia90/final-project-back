@@ -9,6 +9,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletResponse;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
@@ -71,5 +72,11 @@ public class TagController {
     public ResponseEntity<Void> deleteAllTags(){
         log.debug("REST request to delete all tags");
         return tagService.deleteAllTags();
+    }
+    @DeleteMapping("/tags/{id}")
+    public ResponseEntity<Void> deleteTagById(@PathVariable Long id){
+
+        log.debug("REST request to delete a tag by Id{} ", id);
+        return tagService.deleteById(id);
     }
 }
