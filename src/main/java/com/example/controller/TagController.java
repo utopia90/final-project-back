@@ -14,8 +14,8 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
 
-@RestController
 @CrossOrigin(origins = "*",exposedHeaders="Access-Control-Allow-Origin")
+@RestController
 @RequestMapping("/api")
 public class TagController {
 
