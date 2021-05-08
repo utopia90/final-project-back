@@ -44,18 +44,14 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
 
-        http.csrf().disable()
-                .authorizeRequests().antMatchers("/api/**").permitAll()
-                .anyRequest()
-                .authenticated()
+        http
+                .csrf().disable()
+                .authorizeRequests()
+                .anyRequest().authenticated()
                 .and()
-                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
-           .and()
-                .authorizeRequests().and().httpBasic().and().cors();
-        http.headers().cacheControl();
+                .httpBasic();
 
-
-
+        http.cors();
     }
     @Bean
     public static PasswordEncoder passwordEncoder() {
