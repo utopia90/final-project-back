@@ -24,6 +24,7 @@ import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
+import javax.ws.rs.HttpMethod;
 import java.util.Collections;
 
 @Configuration
@@ -44,7 +45,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.cors().and().csrf().disable()
-                .authorizeRequests().antMatchers("/**").permitAll()
+                .authorizeRequests().antMatchers(HttpMethod.OPTIONS,"/**").permitAll()
                 .anyRequest()
                 .authenticated()
                 .and()
