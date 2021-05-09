@@ -1,6 +1,7 @@
 package com.example.controller;
 
 import com.example.config.JwtTokenUtil;
+import com.example.model.Expert;
 import com.example.model.User;
 import com.example.repository.userRepository;
 import com.example.service.userService.userService;
@@ -44,10 +45,14 @@ public class UserController {
 
     @PostMapping("/register")
     public ResponseEntity<User> registerUser(@RequestBody User user) {
-        if (user != null) {
+        if (user != null && userRepository.findUserByEmail(user.getEmail()) == null) {
             User newUser = userService.createNewUser(user);
+            return ResponseEntity.ok().body(user);
+
+        }else{
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
-        return ResponseEntity.ok().body(user);
+
     }
 
     @PostMapping("/login")
@@ -61,4 +66,13 @@ public class UserController {
             return new ResponseEntity<>("Unauthorized", HttpStatus.UNAUTHORIZED);
         }
     }
+    @GetMapping("/users/mail/{mail}")
+    public ResponseEntity<User>  findUserByEmail(@PathVariable("email") String email) {
+        log.info("REST request to find one user by email:[]", email);
+        User userOpt = userService.findUserByEmail(email);
+        if( userOpt != null){
+            return ResponseEntity.ok().body(userOpt);
+        }else{
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }}
 }

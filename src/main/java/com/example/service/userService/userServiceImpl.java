@@ -47,6 +47,15 @@ public class userServiceImpl implements userService {
     }
 
     @Override
+    public User findUserByEmail(String email) {
+        if(repository.existsUserByEmail(email)) {
+            User user = repository.findUserByEmail(email);
+            return user;
+        }
+        return null;
+    }
+
+    @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
         User applicationUser = repository.findUserByEmail(email);
         if (applicationUser == null) {
