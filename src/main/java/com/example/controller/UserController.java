@@ -66,13 +66,4 @@ public class UserController {
             return new ResponseEntity<>("Unauthorized", HttpStatus.UNAUTHORIZED);
         }
     }
-    @GetMapping("/users/mail/{mail}")
-    public ResponseEntity<User>  findUserByEmail(@PathVariable("email") String email) {
-        log.info("REST request to find one user by email:[]", email);
-        User userOpt = userService.findUserByEmail(email);
-        if( userOpt != null){
-            return ResponseEntity.ok().body(userOpt);
-        }else{
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }}
-}
+    }
