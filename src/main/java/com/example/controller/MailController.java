@@ -25,11 +25,8 @@ public class MailController {
     }
     @PostMapping("/registration-email")
     public ResponseEntity<Email> sendEmail(@RequestBody Email email){
-        try {
+
             emailService.sendEmail(email);
             return new ResponseEntity<>(email,  HttpStatus.OK);
-        } catch( MailException e){
-            return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
-        }
     }
 }
