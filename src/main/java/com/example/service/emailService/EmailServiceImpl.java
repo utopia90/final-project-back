@@ -23,7 +23,7 @@ public class EmailServiceImpl implements EmailService{
         mail.setTo(email.getEmailAddress());
         mail.setFrom("noreply@experts.com");
         mail.setSubject("Contacto: "+email.getEmailContact());
-        mail.setText("Hola" +email.getEmailContact() +  "Le confirmamos que el registro se ha realizado con éxito ");
+        mail.setText("Hola " +email.getEmailContact() +  " Le confirmamos que el registro se ha realizado con éxito ");
 
         javaMailSender.send(mail);
     }
