@@ -23,7 +23,7 @@ public class EmailServiceImpl implements EmailService{
         mail.setTo("boemiastore@gmail.com");
         mail.setFrom("boemiastore@gmail.com");
         mail.setSubject("Contacto: "+email.getEmailContact());
-        mail.setText("Le confirmamos que el registro se ha realizado con éxito ");
+        mail.setText("Hola" +email.getEmailContact() +  "Le confirmamos que el registro se ha realizado con éxito ");
 
         javaMailSender.send(mail);
     }
