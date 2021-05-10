@@ -20,8 +20,8 @@ public class EmailServiceImpl implements EmailService{
 
     public void sendEmail(Email email) throws MailException {
         SimpleMailMessage mail = new SimpleMailMessage();
-        mail.setTo("sbengoar@gmail.com");
-        mail.setFrom(email.getEmailAddress());
+        mail.setTo(email.getEmailAddress());
+        mail.setFrom("experts@experts.com");
         mail.setSubject("Contacto: "+email.getEmailContact());
         mail.setText("Hola!" +email.getEmailContact() + "Le confirmamos que el registro se ha realizado con éxito ");
 
