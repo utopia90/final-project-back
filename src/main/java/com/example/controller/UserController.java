@@ -1,15 +1,18 @@
 package com.example.controller;
 
 import com.example.config.JwtTokenUtil;
+import com.example.model.Email;
 import com.example.model.Expert;
 import com.example.model.User;
 import com.example.repository.userRepository;
+import com.example.service.emailService.EmailService;
 import com.example.service.userService.userService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.mail.MailException;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -43,6 +46,9 @@ public class UserController {
     @Autowired
     JwtTokenUtil JwtTokenUtil;
 
+    @Autowired
+    private EmailService emailService;
+
     @PostMapping("/register")
     public ResponseEntity<User> registerUser(@RequestBody User user) {
         if (user != null && userRepository.findUserByEmail(user.getEmail()) == null) {
@@ -66,4 +72,17 @@ public class UserController {
             return new ResponseEntity<>("Unauthorized", HttpStatus.UNAUTHORIZED);
         }
     }
+
+    @PostMapping(value = "/registration-email")
+    public ResponseEntity<Email> sendEmail(@RequestBody Email email){
+        try {
+            emailService.sendEmail(email);
+            return new ResponseEntity<>(email,  HttpStatus.OK);
+        } catch( MailException e){
+            return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+
+
     }
+
+}
