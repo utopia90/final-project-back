@@ -46,8 +46,6 @@ public class UserController {
     @Autowired
     JwtTokenUtil JwtTokenUtil;
 
-    @Autowired
-    private EmailService emailService;
 
     @PostMapping("/register")
     public ResponseEntity<User> registerUser(@RequestBody User user) {
@@ -73,16 +71,6 @@ public class UserController {
         }
     }
 
-    @PostMapping("/registration-email")
-    public ResponseEntity<Email> sendEmail(@RequestBody Email email){
-        try {
-            emailService.sendEmail(email);
-            return new ResponseEntity<>(email,  HttpStatus.OK);
-        } catch( MailException e){
-            return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
-        }
 
-
-    }
 
 }
