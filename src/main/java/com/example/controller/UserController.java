@@ -73,7 +73,7 @@ public class UserController {
         }
     }
 
-    @PostMapping(value = "/registration-email")
+    @PostMapping("/registration-email")
     public ResponseEntity<Email> sendEmail(@RequestBody Email email){
         try {
             emailService.sendEmail(email);
